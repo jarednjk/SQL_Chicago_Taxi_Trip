@@ -1,6 +1,6 @@
 # Introduction
 
-🚕 The [Chicago Taxi Trip](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=chicago_taxi_trips&page=dataset) public dataset from BigQuery is a collection of data related to taxi trips taken in the city of Chicago, Illinois. The dataset contains information on over 100 million taxi trips, spanning from 01/01/2013 to 31/12/2023. It includes details such as 📍 pickup and drop-off locations, 🛣️ trip distances, 💲 fares, 💳 payment methods, and ⏱️ timestamps.
+🚕 The [Chicago Taxi Trip](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=chicago_taxi_trips&page=dataset) public dataset from BigQuery is a collection of data related to taxi trips taken in the city of Chicago, Illinois. The dataset contains information on over 100 million taxi trips, spanning from 01/01/2013 to 31/12/2023. It includes details such as 🏢 the companies, 📍 pickup and drop-off locations, 🛣️ trip distances, 💲 fares, 💳 payment types, and ⏱️ timestamps.
 
 ### The questions I wanted to answer through my SQL queries were:
 
