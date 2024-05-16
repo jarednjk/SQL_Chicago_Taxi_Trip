@@ -27,7 +27,7 @@ Each query for this project aimed at investigating specific aspects of the Chica
 
 ### 1. Top Performing Taxi Companies by Revenue
 
-To identify the companies with the highest revenue, I filtered by summing the fare for each company and order them by the highest revenue.
+To identify the companies with the highest revenue, I filtered by excluding company with null values, summing the fare for each company, and ordering them by the highest revenue.
 
 ```
 SELECT
@@ -49,6 +49,8 @@ LIMIT
 
 ### 2. Taxi Companies with the Most Trips
 
+To identify the companies with the most trips, I filtered by excluding company with null values, counting the total trips made for each company, and ordering them by the highest total trips made.
+
 ```
 SELECT
     company,
@@ -69,6 +71,8 @@ LIMIT
 
 ### 3. Increase in Cost of Taxi Over the Last Decade
 
+To identify the increase in taxi cost over the last decade, I filtered by averaging the cost of each taxi trip according to the year.
+
 ```
 SELECT
     EXTRACT(YEAR from DATE_TRUNC(CAST(trip_start_timestamp AS DATE), YEAR)) AS year,
@@ -84,6 +88,9 @@ ORDER BY
 ![Average cost of taxi trip by year](https://github.com/jarednjk/sql-chicago-taxi-trip/blob/main/results/avg_cost_taxi_trip_by_year.png)
 
 ### 4. Cheapest and Most Expensive Months to Take a Taxi
+
+To identify the cheapest and most expensive months to take a taxi, I filtered by averaging the cost of each taxi trip according to the month.
+
 
 ```
 SELECT
@@ -102,6 +109,8 @@ ORDER BY
 ![Average cost of taxi trip by month](https://github.com/jarednjk/sql-chicago-taxi-trip/blob/main/results/avg_cost_taxi_trip_by_month.png)
 
 ### 5. Most Popular Pickup and Dropoff Places
+
+To identify the most popular pickup and dropoff places, I filtered by excluding pickup and dropoff community areas with null values, counting the total trips made for each community area, and ordering them by the highest total trips made.
 
 ```
 SELECT
