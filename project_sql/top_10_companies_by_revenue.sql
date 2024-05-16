@@ -1,6 +1,6 @@
 SELECT
     company,
-    SUM(fare) AS revenue
+    ROUND(SUM(fare),2) AS revenue
 FROM
     `bigquery-public-data.chicago_taxi_trips.taxi_trips` 
 WHERE
