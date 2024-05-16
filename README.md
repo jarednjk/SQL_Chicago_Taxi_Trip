@@ -1,26 +1,19 @@
-# sql-chicago-taxi-trip
-
-Utilised BigQuery to analyse and transform over 100,000,000 rows of data from [BigQuery Chicago Taxi Trip public dataset](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=chicago_taxi_trips&page=dataset).
-
-Utilised Tableau to create an [interactive data visualisation dashboard](https://public.tableau.com/app/profile/jarednjk/viz/ChicagoTaxiTripsDataVisualisationA4portrait/Dashboard2) to uncover insights for Chicago taxi trips such as the:
-* Top 10 companies by revenue
-* Top 10 companies for most trips
-* Average cost of taxi trip by year
-* Average cost of taxi trip by month
-* Top 10 pickup community area
-* Top 10 dropoff community area
-
 # Introduction
-The [Chicago Taxi Trip](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=chicago_taxi_trips&page=dataset) public dataset from BigQuery is a collection of data related to taxi trips taken in the city of Chicago, Illinois. The dataset contains information on over 100 million taxi trips, spanning from 01/01/2013 to 31/12/2023. It includes details such as pickup and drop-off locations, trip distances, fares, payment methods, and timestamps.
+
+🚕 The [Chicago Taxi Trip](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=chicago_taxi_trips&page=dataset) public dataset from BigQuery is a collection of data related to taxi trips taken in the city of Chicago, Illinois. The dataset contains information on over 100 million taxi trips, spanning from 01/01/2013 to 31/12/2023. It includes details such as 📍 pickup and drop-off locations, 🛣️ trip distances, 💲 fares, 💳 payment methods, and ⏱️ timestamps.
 
 ### The questions I wanted to answer through my SQL queries were:
+
 1. Which are the top performing taxi companies by revenue and how much did they make?
 2. Which taxi companies made the most trips?
 3. How much has the average total cost of a taxi trip increased over the last decade?
 4. Which are the cheapest and most expensive time of the year to take a taxi?
 5. Where are the most popular pickup and dropoff places?
 
+My data visualisation dashbboard using Tableau can be found [here](https://public.tableau.com/app/profile/jarednjk/viz/ChicagoTaxiTripsDataVisualisationA4portrait/Dashboard2).
+
 # Tools I Used
+
 For my deep dive into the Chicago taxi trip public dataset, I harnessed the power of several key tools:
 
 - **SQL:** The backbone of my analysis, allowing me to query the database and unearth critical insights.
@@ -29,9 +22,11 @@ For my deep dive into the Chicago taxi trip public dataset, I harnessed the powe
 - **Tableau:** The data visualisation tool used for data analysis and business intelligence to share my insights via a dashboard.
 
 # The Analysis
+
 Each query for this project aimed at investigating specific aspects of the Chicago taxi trip dataset. Here’s how I approached each question:
 
 ### 1. Top Performing Taxi Companies by Revenue
+
 To identify the companies with the highest revenue, I filtered by summing the fare for each company and order them by the highest revenue.
 
 ```
@@ -39,7 +34,7 @@ SELECT
     company,
     ROUND(SUM(fare),2) AS revenue
 FROM
-    `bigquery-public-data.chicago_taxi_trips.taxi_trips` 
+    `bigquery-public-data.chicago_taxi_trips.taxi_trips`
 WHERE
     company IS NOT NULL
 GROUP BY
@@ -50,7 +45,7 @@ LIMIT
     10
 ```
 
-![Top 10 companies by revenue]()
+![Top 10 companies by revenue](https://github.com/jarednjk/sql-chicago-taxi-trip/blob/main/results/top_10_companies_by_revenue.png)
 
 ### 2. Taxi Companies with the Most Trips
 
@@ -59,7 +54,7 @@ SELECT
     company,
     COUNT(*) AS total_trips
 FROM
-    `bigquery-public-data.chicago_taxi_trips.taxi_trips` 
+    `bigquery-public-data.chicago_taxi_trips.taxi_trips`
 WHERE
     company IS NOT NULL
 GROUP BY
@@ -70,7 +65,7 @@ LIMIT
     10
 ```
 
-![Top 10 companies by most trips]()
+![Top 10 companies by most trips](https://github.com/jarednjk/sql-chicago-taxi-trip/blob/main/results/top_10_companies_most_trips.png)
 
 ### 3. Increase in Cost of Taxi Over the Last Decade
 
@@ -79,14 +74,14 @@ SELECT
     EXTRACT(YEAR from DATE_TRUNC(CAST(trip_start_timestamp AS DATE), YEAR)) AS year,
     ROUND(AVG(trip_total),2) AS average_taxi_trip
 FROM
-    `bigquery-public-data.chicago_taxi_trips.taxi_trips` 
+    `bigquery-public-data.chicago_taxi_trips.taxi_trips`
 GROUP BY
     year
 ORDER BY
     year
 ```
 
-![Average cost of taxi trip by year]()
+![Average cost of taxi trip by year](https://github.com/jarednjk/sql-chicago-taxi-trip/blob/main/results/avg_cost_taxi_trip_by_year.png)
 
 ### 4. Cheapest and Most Expensive Months to Take a Taxi
 
@@ -96,7 +91,7 @@ SELECT
   FORMAT_DATETIME("%B", DATE_TRUNC(CAST(trip_start_timestamp AS DATE), MONTH)) AS month,
   ROUND(AVG(trip_total),2) AS average_taxi_trip
 FROM
-    `bigquery-public-data.chicago_taxi_trips.taxi_trips` 
+    `bigquery-public-data.chicago_taxi_trips.taxi_trips`
 GROUP BY
     month,
     month_number
@@ -104,7 +99,7 @@ ORDER BY
     month_number
 ```
 
-![Average cost of taxi trip by month]()
+![Average cost of taxi trip by month](https://github.com/jarednjk/sql-chicago-taxi-trip/blob/main/results/avg_cost_taxi_trip_by_month.png)
 
 ### 5. Most Popular Pickup and Dropoff Places
 
@@ -124,7 +119,7 @@ LIMIT
     10
 ```
 
-![Top 10 pickup community area]()
+![Top 10 pickup community area](https://github.com/jarednjk/sql-chicago-taxi-trip/blob/main/results/top_10_pickup_locations.png)
 
 ```
 SELECT
@@ -142,7 +137,7 @@ LIMIT
     10
 ```
 
-![Top 10 dropoff community area]()
+![Top 10 dropoff community area](https://github.com/jarednjk/sql-chicago-taxi-trip/blob/main/results/top_10_dropoff_locations.png)
 
 # What I Learned
 
@@ -156,10 +151,11 @@ Throughout this adventure, I've turbocharged my SQL toolkit with some serious fi
 # Conclusions
 
 ### Insights
+
 From the analysis, several general insights emerged:
 
 1. **Top Performing Taxi Companies by Revenue**: Flash Cab has the highest revenue at $141,540,183.95.
 2. **Taxi Companies with the Most Trips**: Flash Cab made the most trips with a total of 10,706,978 times.
-3. **Increase in Cost of Taxi Over the Last Decade**: SQL is the most demanded skill in the data analyst job market, thus making it essential for job seekers.
-4. **Cheapest and Most Expensive Months to Take a Taxi**: Specialized skills, such as Spark and Looker, are associated with the highest average salaries, indicating a premium on niche expertise.
-5. **Most Popular Pickup and Dropoff Places**: SQL leads in demand and offers for a high average salary, positioning it as one of the most optimal skills for data analysts to learn to maximize their market value.
+3. **Increase in Cost of Taxi Over the Last Decade**: The average cost of taking a taxi has risen significantly over the years by 64% from $15.14 in 2013 to $24.83 in 2023.
+4. **Cheapest and Most Expensive Months to Take a Taxi**: October is the most expensive month to take a taxi while December is the cheapest.
+5. **Most Popular Pickup and Dropoff Places**: Community area 8 is the most popular pickup and dropoff point.
