@@ -1,6 +1,6 @@
 # Introduction
 
-🚕 The [Chicago Taxi Trip](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=chicago_taxi_trips&page=dataset) public dataset from BigQuery is a collection of data related to taxi trips taken in the city of Chicago, Illinois. The dataset contains information on over 100 million taxi trips, spanning from 01/01/2013 to 31/12/2023. It includes details such as 🏢 the company names, 📍 pickup and drop-off locations, 🛣️ trip distances, 💲 fares, 💳 payment types, and ⏱️ timestamps.
+🚕 The [Chicago Taxi Trip](https://console.cloud.google.com/bigquery?p=bigquery-public-data&d=chicago_taxi_trips&page=dataset) public dataset from BigQuery is a collection of data related to taxi trips taken in the city of Chicago, Illinois. The dataset contains information on over 100 million taxi trips, spanning from 01/01/2013 to 31/12/2023. It includes details such as 📍 pickup and drop-off locations, 🛣️ trip distances, 💲 fares, 💳 payment types, ⏱️ timestamps, and 🏢 company names.
 
 ### The questions I wanted to answer through my SQL queries were:
 
@@ -10,7 +10,9 @@
 4. Which are the cheapest and most expensive time of the year to take a taxi?
 5. Where are the most popular pickup and dropoff places?
 
-My data visualisation dashbboard using Tableau can be found [here](https://public.tableau.com/app/profile/jarednjk/viz/ChicagoTaxiTripsDataVisualisationA4portrait/Dashboard2).
+Check out my data visualisation dashbboard using Tableau [here](https://public.tableau.com/app/profile/jarednjk/viz/ChicagoTaxiTripsDataVisualisationA4portrait/Dashboard2).
+
+Check out my data presentation using Google Slides [here](https://docs.google.com/presentation/d/e/2PACX-1vQmT1Kpi6viLmYYBEDmf6NdQR7DEeEmAysLSxI8vhVAHG0SkBNb4551DcDjodegUYNQanNzVAYRliTx/pub?start=false&loop=false&delayms=3000).
 
 # Tools I Used
 
@@ -163,8 +165,8 @@ Throughout this adventure, I've turbocharged my SQL toolkit with some serious fi
 
 From the analysis, several general insights emerged:
 
-1. **Top Performing Taxi Companies by Revenue**: Flash Cab has the highest revenue at $141,540,183.95.
-2. **Taxi Companies with the Most Trips**: Flash Cab made the most trips with a total of 10,706,978 times.
-3. **Increase in Cost of Taxi Over the Last Decade**: The average cost of taking a taxi has risen significantly over the years by 64% from $15.14 in 2013 to $24.83 in 2023.
-4. **Cheapest and Most Expensive Months to Take a Taxi**: October is the most expensive month to take a taxi while December is the cheapest.
-5. **Most Popular Pickup and Dropoff Places**: Community area 8 is the most popular pickup and dropoff point.
+1. **Top Performing Taxi Companies by Revenue**: Flash Cab has the highest revenue at $141 million.
+2. **Most popular Taxi Company**: Flash Cab is the most popular taxi company with over 10 million trips made.
+3. **Increase in Cost of Taxi Over the Last Decade**: The average cost of taking a taxi has risen significantly over the years by 64% from $15.14 in 2013 to $24.83 in 2023. The reasons could be due to inflation, rising oil prices, and a shortage of taxi drivers.
+4. **Cheapest and Most Expensive Months to Take a Taxi**: October is the most expensive month to take a taxi while December is the cheapest. December to February could be cheaper due to Winter where locals travel away, resulting in a low demand for taxis. April to June could be more expensive due to Spring where tourism is at its peak, resulting in high demand for taxis. September to November could be more expensive due to Autumn where it's the most stable period of the year with less rain and the second favorite time for tourists to visit.
+5. **Most Popular Pickup and Dropoff Places**: Community area 8 is the most popular pickup and dropoff point. Taxi companies can send more taxis to these locations to optimise their operations and reduce customers’ waiting time.
