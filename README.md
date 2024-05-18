@@ -12,7 +12,7 @@
 
 Check out my data visualisation dashbboard using Tableau [here](https://public.tableau.com/app/profile/jarednjk/viz/ChicagoTaxiTripsDataVisualisationA4portrait/Dashboard2).
 
-Check out my data presentation using Google Slides [here](https://docs.google.com/presentation/d/e/2PACX-1vQmT1Kpi6viLmYYBEDmf6NdQR7DEeEmAysLSxI8vhVAHG0SkBNb4551DcDjodegUYNQanNzVAYRliTx/pub?start=false&loop=false&delayms=3000).
+Check out my data presentation deck using Google Slides [here](https://docs.google.com/presentation/d/e/2PACX-1vQmT1Kpi6viLmYYBEDmf6NdQR7DEeEmAysLSxI8vhVAHG0SkBNb4551DcDjodegUYNQanNzVAYRliTx/pub?start=false&loop=false&delayms=3000).
 
 # Tools I Used
 
